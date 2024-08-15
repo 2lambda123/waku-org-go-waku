@@ -1,13 +1,15 @@
 #!/bin/bash
 
-parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" || exit ; pwd -P )/../../
+parent_path=$(
+  cd "$(dirname "${BASH_SOURCE[0]}")" || exit
+  pwd -P
+)/../../
 
 VERSION=$(cat "$parent_path"/VERSION)
 
-if [ ! -f "$parent_path"/build/waku ]
-then
-    echo "waku binary does not exist. Execute make first"
-    exit
+if [ ! -f "$parent_path"/build/waku ]; then
+  echo "waku binary does not exist. Execute make first"
+  exit
 fi
 
 tmpdir=$(mktemp -d)
