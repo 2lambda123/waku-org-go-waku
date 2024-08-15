@@ -6,11 +6,11 @@ This page will take you through how to set up a `systemd` service for go-waku.
 Once this is done, you can start/stop enable/disable from the linux prompt.
 
 !!! abstract "`systemd`"
-    [`systemd`](https://systemd.io/) is a service manager designed specifically for Linux: it cannot be used on Windows / Mac.
-    You can find out more about `systemd` [here](https://fedoramagazine.org/what-is-an-init-system/).
+[`systemd`](https://systemd.io/) is a service manager designed specifically for Linux: it cannot be used on Windows / Mac.
+You can find out more about `systemd` [here](https://fedoramagazine.org/what-is-an-init-system/).
 
 !!! note "Package manager installations"
-    When installing go-waku via your package manager, a user and service will already have been created for you and you can skip straight to the configuration section.
+When installing go-waku via your package manager, a user and service will already have been created for you and you can skip straight to the configuration section.
 
 ### 1. Create the service file
 
@@ -26,10 +26,8 @@ curl -s https://raw.githubusercontent.com/waku-org/go-waku/scripts/linux/go-waku
 The format of service files is documented in the [systemd manual](https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html).
 
 !!! note
-    go-waku has two return codes for errors:
-    - `1` returned for recoverable errors
-    - `166` returned for non-recoverable errors.
-    The example service file uses 166 in `RestartPreventExitStatus` to prevent automated restarts for non recoverable errors.
+go-waku has two return codes for errors: - `1` returned for recoverable errors - `166` returned for non-recoverable errors.
+The example service file uses 166 in `RestartPreventExitStatus` to prevent automated restarts for non recoverable errors.
 
 ### 2. Configure your service
 
@@ -44,8 +42,8 @@ sudo systemctl edit waku.service
 ```
 
 !!! note
-    The example assumes go-waku was installed in `/usr/bin/waku`.
-    If you installed go-waku elsewhere, make sure to update this path.
+The example assumes go-waku was installed in `/usr/bin/waku`.
+If you installed go-waku elsewhere, make sure to update this path.
 
 ### 3. Notify systemd of the newly added service
 
